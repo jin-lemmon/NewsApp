@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="thumbnail_margin">5dp</dimen>
+    <dimen name="info_margin">8dp</dimen>
+    <dimen name="between_article">3dp</dimen>
+    <dimen name="title_size">22sp</dimen>
+    <dimen name="trailText_size">18sp</dimen>
+    <dimen name="date_section_size">15sp</dimen>
+    <dimen name="info_marginTop">2dp</dimen>
+</resources>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/between_article">
+
+    <TextView
+
+        android:id="@+id/date"
+        android:textSize="@dimen/date_section_size"
+        android:layout_alignParentTop="true"
+        tools:text="11.11.1111"
+        style="@style/principal_info" />
+
+    <TextView
+        android:id="@+id/headline"
+        android:layout_below="@id/date"
+        android:textSize="@dimen/title_size"
+        tools:text="sticazzitopia"
+        style="@style/principal_info" />
+
+    <TextView
+        android:textSize="@dimen/trailText_size"
+        android:id="@+id/trailText"
+        android:layout_below="@id/headline"
+        tools:text="l'incredibile storia di sticazzi"
+        style="@style/principal_info" />
+
+    <TextView
+        android:id="@+id/section"
+        android:textSize="@dimen/date_section_size"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="@dimen/info_margin"
+        tools:text="nonmenefregauncazzo" />
+
+    <ImageView
+        android:id="@+id/thumbnail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/thumbnail_margin"
+        android:layout_marginStart="@dimen/thumbnail_margin"
+        tools:src="@mipmap/ic_launcher"
+        tools:text="11/11/1111" />
+
+</RelativeLayout>
