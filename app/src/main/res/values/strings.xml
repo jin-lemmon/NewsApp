@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">NewsApp</string>
+    <string name="api_key">3131c94e-6ac8-4d7e-bc20-49db76abf4d1</string>
+    <string name="apiUrl"><![CDATA[        https://content.guardianapis.com/search?q=section=technology&show–fields=trailText,headline,shortUrl,thumbnail,starRating&page-size=20&order-by=newest&api-key=3131c94e-6ac8-4d7e-bc20-49db76abf4d1    ]]></string>
+</resources>
