@@ -5,40 +5,38 @@ public class Article {
     private String aHeadline;
     private String aTrailText;
     private String aShortUrl;
-    private String aThumbnail;
     private String aDate;
     private String aSection;
 
-    public Article(String headline, String trailText, String shortUrl, String thumbnail,
-                   String date, String section) {
+    public Article(String headline, String trailText, String shortUrl, String date, String section) {
         aHeadline = headline;
         aTrailText = trailText;
         aShortUrl = shortUrl;
-        aThumbnail = thumbnail;
         aDate = date;
         aSection = section;
 
     }
 
 
-    public String getaHeadline() {
+    public String getHeadline() {
         return aHeadline;
     }
 
-    public String getaShortUrl() {
+    public String getShortUrl() {
         return aShortUrl;
     }
 
-    public String getaThumbnail() {
-        return aThumbnail;
-    }
 
-    public String getaTrailText() {
+    public String getTrailText() {
         return aTrailText;
     }
 
     public String getDate() {
         return aDate;
+    }
+
+    public String getSection() {
+        return aSection;
     }
 }
 
