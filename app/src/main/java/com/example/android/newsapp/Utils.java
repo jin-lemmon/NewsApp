@@ -1,5 +1,8 @@
 package com.example.android.newsapp;
 
+import android.content.Context;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.util.Log;
 
 import org.json.JSONArray;
@@ -57,15 +60,11 @@ public final class Utils {
             urlConnection.connect();
             inputStream = urlConnection.getInputStream();
             jsonResponse = readFromStream(inputStream);
-        } catch (
-                IOException e)
 
-        {
+        } catch (IOException e) {
             Log.e(LOG_TAG, "IOException thrown");
 
-        } finally
-
-        {
+        } finally {
             if (urlConnection != null) {
                 urlConnection.disconnect();
             }
