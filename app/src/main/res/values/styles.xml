@@ -13,7 +13,8 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_marginEnd">@dimen/info_margin</item>
         <item name="android:layout_marginTop">@dimen/info_marginTop</item>
-        <item name="android:layout_toEndOf">@id/thumbnail</item>
+        <item name="android:layout_alignParentStart">true</item>
+        <item name="android:layout_marginStart">@dimen/thumbnail_margin</item>
     </style>
 
 </resources>

@@ -24,12 +24,9 @@ public class ArticleLoader extends AsyncTaskLoader<List<Article>> {
     private static final String LOG_TAG = ArticleLoader.class.getName();
     private String aUrl;
 
-
     @Override
     protected void onStartLoading() {
         Log.e(LOG_TAG, "OnStartLoading");
-
         forceLoad();
     }
-
 }

@@ -1,8 +1,5 @@
 package com.example.android.newsapp;
 
-import android.content.Context;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
 import android.util.Log;
 
 import org.json.JSONArray;
@@ -40,12 +37,10 @@ public final class Utils {
         } catch (IOException e) {
             Log.e(LOG_TAG, "Problem making the HTTP request.", e);
         }
-
         return extractNews(jsonResponse);
     }
 
     private static String makeHttpRequest(URL url) throws IOException {
-
         String jsonResponse = "";
         if (url == null) {
             return jsonResponse;
@@ -60,16 +55,13 @@ public final class Utils {
             urlConnection.connect();
             inputStream = urlConnection.getInputStream();
             jsonResponse = readFromStream(inputStream);
-
         } catch (IOException e) {
             Log.e(LOG_TAG, "IOException thrown");
-
         } finally {
             if (urlConnection != null) {
                 urlConnection.disconnect();
             }
             if (inputStream != null) {
-                // function must handle java.io.IOException here
                 inputStream.close();
             }
         }
@@ -77,9 +69,7 @@ public final class Utils {
     }
 
     private static List<Article> extractNews(String jsonResponse) {
-
         ArrayList<Article> articles = new ArrayList<>();
-
         try {
             JSONObject baseJSONResponse = new JSONObject(jsonResponse);
             JSONObject response = baseJSONResponse.getJSONObject("response");
@@ -89,11 +79,11 @@ public final class Utils {
                 String sectionName = article.getString("sectionName");
                 String date = article.getString("webPublicationDate");
                 JSONObject fields = article.getJSONObject("fields");
+                String author = fields.getString("byline");
                 String headline = fields.getString("headline");
                 String trailText = fields.getString("trailText");
                 String shortUrl = fields.getString("shortUrl");
-
-                Article news = new Article(headline, trailText, shortUrl, date, sectionName);
+                Article news = new Article(author,headline, trailText, shortUrl, date, sectionName);
                 articles.add(news);
             }
         } catch (JSONException e) {
@@ -127,8 +117,5 @@ public final class Utils {
             return null;
         }
         return url;
-
     }
-
-
 }
