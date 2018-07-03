@@ -1,5 +1,6 @@
 package com.example.android.newsapp;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
@@ -11,9 +12,14 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
+import java.io.InputStream;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 public class ArticleAdapter extends ArrayAdapter<Article> {
+
 
     public ArticleAdapter(@NonNull Context context, int resource, @NonNull List<Article> objects) {
         super(context, resource, objects);
@@ -33,10 +39,11 @@ public class ArticleAdapter extends ArrayAdapter<Article> {
         TextView art_date = listItem.findViewById(R.id.date);
         TextView art_headline = listItem.findViewById(R.id.headline);
         TextView art_trailText = listItem.findViewById(R.id.trailText);
-        art_date.setText(art.getDate());
+        String artDate = artTime(art.getDate());
+        art_date.setText(artDate);
         art_author.setText(art.getAuthor());
         art_section.setText(art.getSection());
-        art_headline.setText(art.getHeadline());
+        art_headline.setText(new StringBuilder().append(art.getHeadline()).append(" ").append(getContext().getString(R.string.by)).append(" ").append(art.getAuthor()).toString());
         art_trailText.setText(art.getTrailText());
         listItem.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -47,7 +54,19 @@ public class ArticleAdapter extends ArrayAdapter<Article> {
         });
         return listItem;
     }
+
+    @SuppressLint("SimpleDateFormat")
+    private static String artTime(String dateString) {
+        Date date = null;
+        try {
+            date = new SimpleDateFormat("yyyy-MM-dd").parse(dateString);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        return new SimpleDateFormat("dd/MM/yyyy").format(date);
+    }
 }
+
 //    private int getSectionColor (String section) {
 //int sectioncolor;
 //        switch (section) {

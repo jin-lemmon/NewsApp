@@ -3,6 +3,5 @@
     <string name="api_key">3131c94e-6ac8-4d7e-bc20-49db76abf4d1</string>
     <string name="no_news_found">No News Found</string>
     <string name="no_internet">no internet</string>
-
-
+    <string name="by"> by </string>
 </resources>

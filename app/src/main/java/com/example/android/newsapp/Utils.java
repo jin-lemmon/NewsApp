@@ -14,7 +14,10 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.nio.charset.Charset;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public final class Utils {
@@ -83,7 +86,7 @@ public final class Utils {
                 String headline = fields.getString("headline");
                 String trailText = fields.getString("trailText");
                 String shortUrl = fields.getString("shortUrl");
-                Article news = new Article(author,headline, trailText, shortUrl, date, sectionName);
+                Article news = new Article(author, headline, trailText, shortUrl, date, sectionName);
                 articles.add(news);
             }
         } catch (JSONException e) {
@@ -118,4 +121,6 @@ public final class Utils {
         }
         return url;
     }
+
+
 }
