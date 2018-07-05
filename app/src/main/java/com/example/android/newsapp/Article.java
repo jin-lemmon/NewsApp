@@ -9,7 +9,7 @@ public class Article {
     private String aDate;
     private String aSection;
 
-    public Article(String author,String headline, String trailText, String shortUrl, String date, String section) {
+    public Article(String author, String headline, String trailText, String shortUrl, String date, String section) {
         anAuthor = author;
         aHeadline = headline;
         aTrailText = trailText;
@@ -17,7 +17,6 @@ public class Article {
         aDate = date;
         aSection = section;
     }
-
 
     public String getHeadline() {
         return aHeadline;
@@ -43,4 +42,3 @@ public class Article {
         return anAuthor;
     }
 }
-

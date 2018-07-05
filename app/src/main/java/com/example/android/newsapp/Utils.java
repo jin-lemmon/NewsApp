@@ -14,10 +14,7 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.nio.charset.Charset;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 public final class Utils {
@@ -92,8 +89,6 @@ public final class Utils {
         } catch (JSONException e) {
             Log.e(LOG_TAG, "Problem parsing the JSON ", e);
         }
-
-        // Return the list of earthquakes
         return articles;
     }
 
@@ -121,6 +116,4 @@ public final class Utils {
         }
         return url;
     }
-
-
 }

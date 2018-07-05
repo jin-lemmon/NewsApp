@@ -22,7 +22,6 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
     public ArticleAdapter anAdapter;
     String aUrl = "https://content.guardianapis.com/search?order-by=newest&show-fields=byline%2CtrailText%2Cheadline%2CshortUrl&page-size=20&q=android%20AND%20(develop%20OR%20development)&api-key=3131c94e-6ac8-4d7e-bc20-49db76abf4d1";
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,8 +42,6 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         }
         TextView emptyView = findViewById(R.id.emptyView);
         emptyView.setText(R.string.no_internet);
-
-
     }
 
     @Override
@@ -68,5 +65,4 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
     public void onLoaderReset(Loader<List<Article>> loader) {
         anAdapter.clear();
     }
-
 }

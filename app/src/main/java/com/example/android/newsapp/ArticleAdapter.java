@@ -12,15 +12,12 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
-import java.io.InputStream;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
 public class ArticleAdapter extends ArrayAdapter<Article> {
-
-
     public ArticleAdapter(@NonNull Context context, int resource, @NonNull List<Article> objects) {
         super(context, resource, objects);
     }
