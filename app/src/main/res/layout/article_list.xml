@@ -3,10 +3,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginTop="@dimen/between_article">
+    android:padding="@dimen/article_margin"
+    android:background="@android:color/holo_orange_light">
 
     <TextView
         android:id="@+id/date"
+        android:layout_toStartOf="@id/section"
         style="@style/principal_info"
         android:layout_alignParentTop="true"
         android:textSize="@dimen/date_section_size"

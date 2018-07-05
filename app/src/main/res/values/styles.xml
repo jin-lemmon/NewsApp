@@ -14,7 +14,7 @@
         <item name="android:layout_marginEnd">@dimen/info_margin</item>
         <item name="android:layout_marginTop">@dimen/info_marginTop</item>
         <item name="android:layout_alignParentStart">true</item>
-        <item name="android:layout_marginStart">@dimen/thumbnail_margin</item>
+        <item name="android:layout_marginStart">5dp</item>
     </style>
 
 </resources>
