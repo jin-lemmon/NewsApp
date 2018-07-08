@@ -18,6 +18,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public final class Utils {
+    static int readTimeOut = 15000;
+    static int connectionTimeOut = 10000;
 
     public static final String LOG_TAG = Utils.class.getName();
 
@@ -25,11 +27,7 @@ public final class Utils {
     }
 
     public static List<Article> fetchData(String requestUrl) {
-        try {
-            Thread.sleep(2000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+
         URL url = createUrl(requestUrl);
         String jsonResponse = null;
         try {
@@ -50,8 +48,8 @@ public final class Utils {
         try {
             urlConnection = (HttpURLConnection) url.openConnection();
             urlConnection.setRequestMethod("GET");
-            urlConnection.setReadTimeout(10000 /* milliseconds */);
-            urlConnection.setConnectTimeout(15000 /* milliseconds */);
+            urlConnection.setReadTimeout(readTimeOut);
+            urlConnection.setConnectTimeout(connectionTimeOut);
             urlConnection.connect();
             inputStream = urlConnection.getInputStream();
             jsonResponse = readFromStream(inputStream);

@@ -18,9 +18,12 @@ import java.util.Date;
 import java.util.List;
 
 public class ArticleAdapter extends ArrayAdapter<Article> {
+
     public ArticleAdapter(@NonNull Context context, int resource, @NonNull List<Article> objects) {
         super(context, resource, objects);
     }
+
+
 
     @NonNull
     @Override
@@ -31,14 +34,13 @@ public class ArticleAdapter extends ArrayAdapter<Article> {
         }
         Article art = getItem(position);
         final String shortUrl = art.getShortUrl();
-        TextView art_author = listItem.findViewById(R.id.author);
+
         TextView art_section = listItem.findViewById(R.id.section);
         TextView art_date = listItem.findViewById(R.id.date);
         TextView art_headline = listItem.findViewById(R.id.headline);
         TextView art_trailText = listItem.findViewById(R.id.trailText);
         String artDate = artTime(art.getDate());
         art_date.setText(artDate);
-        art_author.setText(art.getAuthor());
         art_section.setText(art.getSection());
         art_headline.setText(new StringBuilder().append(art.getHeadline()).append(" ").append(getContext().getString(R.string.by)).append(" ").append(art.getAuthor()).toString());
         art_trailText.setText(art.getTrailText());
