@@ -18,8 +18,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public final class Utils {
-    static int readTimeOut = 15000;
-    static int connectionTimeOut = 10000;
+    private static int readTimeOut = 15000;
+    private static int connectionTimeOut = 10000;
 
     public static final String LOG_TAG = Utils.class.getName();
 
@@ -81,7 +81,8 @@ public final class Utils {
                 String headline = fields.getString("headline");
                 String trailText = fields.getString("trailText");
                 String shortUrl = fields.getString("shortUrl");
-                Article news = new Article(author, headline, trailText, shortUrl, date, sectionName);
+                int words = fields.getInt("wordcount");
+                Article news = new Article(author, headline, trailText, shortUrl, date, sectionName,words);
                 articles.add(news);
             }
         } catch (JSONException e) {

@@ -24,7 +24,6 @@ public class ArticleAdapter extends ArrayAdapter<Article> {
     }
 
 
-
     @NonNull
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
@@ -34,13 +33,15 @@ public class ArticleAdapter extends ArrayAdapter<Article> {
         }
         Article art = getItem(position);
         final String shortUrl = art.getShortUrl();
-
         TextView art_section = listItem.findViewById(R.id.section);
         TextView art_date = listItem.findViewById(R.id.date);
         TextView art_headline = listItem.findViewById(R.id.headline);
         TextView art_trailText = listItem.findViewById(R.id.trailText);
+        TextView art_words = listItem.findViewById(R.id.words);
         String artDate = artTime(art.getDate());
+
         art_date.setText(artDate);
+        art_words.setText("words: "+art.getWords());
         art_section.setText(art.getSection());
         art_headline.setText(new StringBuilder().append(art.getHeadline()).append(" ").append(getContext().getString(R.string.by)).append(" ").append(art.getAuthor()).toString());
         art_trailText.setText(art.getTrailText());

@@ -20,6 +20,7 @@
         android:layout_below="@id/date"
         android:textColor="@color/Headline_color"
         android:textSize="@dimen/title_size"
+        android:layout_toStartOf="@id/words"
         tools:text="sticazzitopia" />
 
     <TextView
@@ -29,6 +30,7 @@
         android:maxLength="100"
         android:textColor="#000000"
         android:textSize="@dimen/trailText_size"
+        android:layout_toStartOf="@id/words"
         tools:text="l'incredibile storia di sticazzi " />
 
     <TextView
@@ -39,4 +41,14 @@
         android:layout_marginEnd="@dimen/info_margin"
         android:textSize="@dimen/date_section_size"
         tools:text="nonmenefregauncazzo" />
+
+    <TextView
+        android:id="@+id/words"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/trailText_size"
+        android:layout_alignParentEnd="true"
+        tools:text="5"
+        android:layout_below="@id/section"
+        />
 </RelativeLayout>

@@ -4,9 +4,12 @@ import android.app.LoaderManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.Loader;
+import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.net.Uri;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Menu;
@@ -23,7 +26,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
     String LOG_TAG = MainActivity.class.getName();
     private static final int LOADER_ID = 1;
     public ArticleAdapter anAdapter;
-    String aUrl = "https://content.guardianapis.com/search?order-by=newest&show-fields=byline%2CtrailText%2Cheadline%2CshortUrl&page-size=20&q=android%20AND%20(develop%20OR%20development)&api-key=3131c94e-6ac8-4d7e-bc20-49db76abf4d1";
+    String aUrl = "https://content.guardianapis.com/search?";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,14 +66,31 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         }
         return super.onOptionsItemSelected(item);
     }
+
     @Override
     public Loader<List<Article>> onCreateLoader(int id, Bundle args) {
-        return new ArticleLoader(this, aUrl);
+//order-by=newest&show-fields=all&page-size=20&q=android%20AND%20(develop%20OR%20development)&api-key=3131c94e-6ac8-4d7e-bc20-49db76abf4d1//*
+        SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(this);
+        String apiKey = BuildConfig.ApiKey;
+        String pageSize = sharedPrefs.getString(
+                getString(R.string.max_page_key),
+                getString(R.string.maximum_page_default));
+        String orderBy = sharedPrefs.getString(
+                getString(R.string.settings_order_by_key),
+                getString(R.string.settings_order_by_default));
+        Uri baseUri = Uri.parse(aUrl);
+        Uri.Builder uriBuilder = baseUri.buildUpon();
+        uriBuilder.appendQueryParameter("order-by", orderBy);
+        uriBuilder.appendQueryParameter("show-fields", "all");
+        uriBuilder.appendQueryParameter("page-size", pageSize);
+        uriBuilder.appendQueryParameter("q", "android AND (develop OR development)");
+        uriBuilder.appendQueryParameter("api-key", apiKey);
+        return new ArticleLoader(this, uriBuilder.toString());
     }
 
     @Override
     public void onLoadFinished(Loader<List<Article>> loader, List<Article> data) {
-        TextView emptyView = findViewById(R.id.emptyView);
+                TextView emptyView = findViewById(R.id.emptyView);
         emptyView.setText(R.string.no_news_found);
         ProgressBar circle = findViewById(R.id.progress);
         circle.setVisibility(View.GONE);

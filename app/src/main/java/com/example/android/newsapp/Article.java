@@ -8,14 +8,16 @@ public class Article {
     private String aShortUrl;
     private String aDate;
     private String aSection;
+    private int aWords;
 
-    public Article(String author, String headline, String trailText, String shortUrl, String date, String section) {
+    public Article(String author, String headline, String trailText, String shortUrl, String date, String section,int words) {
         anAuthor = author;
         aHeadline = headline;
         aTrailText = trailText;
         aShortUrl = shortUrl;
         aDate = date;
         aSection = section;
+        aWords = words;
     }
 
     public String getHeadline() {
@@ -40,5 +42,9 @@ public class Article {
 
     public String getAuthor() {
         return anAuthor;
+    }
+
+    public int getWords() {
+        return aWords;
     }
 }
